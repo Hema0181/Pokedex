@@ -29,11 +29,10 @@ def login_view(request):
             return render(request, 'login.html', {'error': 'Invalid credentials'})
     return render(request, 'login.html')
 
-import requests
-from django.shortcuts import render
+
 
 def home(request):
-    pokemon_name = request.GET.get('name', 'pikachu')  # Default is pikachu
+    pokemon_name = request.GET.get('name', 'pikachu') 
     api_url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_name.lower()}"
     response = requests.get(api_url)
 
